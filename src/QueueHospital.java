@@ -9,6 +9,7 @@ public class QueueHospital <PatientType> extends Hospital <PatientType>{
         queue = new LinkedList<>(); 
     }
     
+    @Override
     public void addPatient (PatientType patient) {
         queue.add(patient);
     }
@@ -26,15 +27,13 @@ public class QueueHospital <PatientType> extends Hospital <PatientType>{
     }
     
     public String allPatientInfo() {
-        //TODO
-        return null;
+       
+        return queue.toString();
     }
-
-    @Override
+    
     public String hospitalType()
     {
-        // TODO Auto-generated method stub
-        return null;
+        return "QueueHospital";
     }
     
 }
