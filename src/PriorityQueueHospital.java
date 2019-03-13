@@ -1,6 +1,6 @@
 import java.util.PriorityQueue;
 
-public class PriorityQueueHospital <PatientType> extends Hospital<PatientType>
+public class PriorityQueueHospital <PatientType extends Comparable> extends Hospital<PatientType>
 {
     private PriorityQueue<PatientType>  PQueue;
 
@@ -35,7 +35,12 @@ public class PriorityQueueHospital <PatientType> extends Hospital<PatientType>
     @Override
     public String allPatientInfo()
     {
-        return PQueue.toString();
+        String output = "";
+        for(PatientType p: PQueue) {
+            output += p.toString();
+        }
+       
+        return output;
     }
     
     @Override

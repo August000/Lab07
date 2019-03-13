@@ -24,8 +24,7 @@ public class StackHospital <PatientType> extends Hospital <PatientType>
     @Override
     public PatientType treatNextPatient()
     {
-        stack.pop();
-        return stack.peek();
+        return stack.pop();
     }
 
     @Override
@@ -37,12 +36,18 @@ public class StackHospital <PatientType> extends Hospital <PatientType>
     @Override
     public String hospitalType()
     {
-        return "Stack Hospital";
+        return "StackHospital";
     }
 
     @Override
     public String allPatientInfo()
     {
-       return stack.toString();
+        String output = "";
+      
+        for(PatientType p: stack) {
+            output += p.toString();
+        }
+        System.out.println(output);
+        return output;
     }
 }

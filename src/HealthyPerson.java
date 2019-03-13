@@ -10,22 +10,23 @@ public class HealthyPerson extends Person
         this.reason = reason;
     }
 
+    public String getReason(){
+        return reason;
+    }
+    
     @Override
     protected int compareToImpl(Person p)
     {
-        if(this.getName().compareTo(p.getName()) > 0) {
-            return 1;
-        }
-        else if (this.getName().compareTo(p.getName()) < 0) {
-            return -1;
+        if(p instanceof HealthyPerson) {
+            return this.getName().compareToIgnoreCase(p.getName());
         }
         else {
             return 0;
-        } 
+        }
     }
     
     public String toString() {
-            return String.format("%s, a %d-year old. Visit reason: %s", this.getName(), this.getAge(), reason);
+            return String.format("%s In for %s", super.toString(), reason);
     }
 
 }

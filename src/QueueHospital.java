@@ -14,23 +14,33 @@ public class QueueHospital <PatientType> extends Hospital <PatientType>{
         queue.add(patient);
     }
     
+    @Override
     public PatientType nextPatient() {
         return queue.peek();
     }
     
+    @Override
     public PatientType treatNextPatient() {
         return queue.poll();
     }
-            
+     
+    @Override
     public int numPatients() {
         return queue.size();
     }
     
+    @Override
     public String allPatientInfo() {
        
-        return queue.toString();
+        String output = "";
+        for(PatientType p: queue) {
+            output += p.toString();
+        }
+        
+        return output;
     }
     
+    @Override
     public String hospitalType()
     {
         return "QueueHospital";
